@@ -79,7 +79,8 @@ function App() {
   const [summary, setSummary] = useState(null);
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [stream, setStream] = useState("global"); // 👈 NEW: which sidebar item is active
+  const [stream, setStream] = useState("global");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -127,7 +128,11 @@ function App() {
   const activeStreamMeta = STREAMS[stream];
 
   return (
-    <div className="df-root">
+    <div
+      className={`df-root ${
+        theme === "light" ? "df-theme-light" : "df-theme-dark"
+      }`}
+    >
       <div className="df-scanlines" />
 
       {/* Sidebar */}
@@ -201,11 +206,16 @@ function App() {
       <main className="df-main">
         <div className="df-main-inner">
           <div className="main-title">
-              <h1>Global Developer Ecosystem Monitor</h1>
+            <h1>Global Developer Ecosystem Monitor</h1>
+            <button
+              className="df-theme-toggle"
+              onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+            >
+              {theme === "dark" ? "☀ Light mode" : "🌑 Dark mode"}
+            </button>
           </div>
           {/* Top bar */}
           <header className="df-header">
-
             <div>
               <p>
                 Real-time AI-powered telemetry across code, crypto, cloud,

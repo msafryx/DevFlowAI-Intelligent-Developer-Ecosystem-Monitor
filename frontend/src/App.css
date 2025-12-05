@@ -17,6 +17,12 @@
   --df-font-mono: "JetBrains Mono", "Fira Code", monospace;
   --df-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+  --df-page-bg: radial-gradient(
+    circle at top,
+    #020617 0,
+    #000 60%,
+    #020617 100%
+  );
 }
 
 *,
@@ -219,6 +225,15 @@ body,
   display: flex;
   flex-direction: column;
   gap: 30px; /* space between header, top row, and grid */
+}
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-title button {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 10px;
 }
 
 .main-title h1 {
@@ -645,4 +660,67 @@ body,
 
 .df-header-stream-desc {
   color: var(--df-text-muted);
+}
+/* === THEME VARIANTS ==================================== */
+
+.df-theme-dark {
+  /* no overrides needed – uses :root values */
+}
+
+/* Light mode overrides only the colors; layout stays same */
+.df-theme-light {
+  --df-bg: #f3f4f6;
+  --df-bg-soft: #e5e7eb;
+  --df-card: rgba(255, 255, 255, 0.9);
+  --df-border: rgba(148, 163, 184, 0.6);
+  --df-text-main: #0f172a;
+  --df-text-muted: #6b7280;
+  --df-neon: #0f766e;
+  --df-neon-soft: rgba(14, 116, 144, 0.4);
+  --df-shadow: 0 0 30px rgba(59, 130, 246, 0.16);
+  --df-page-bg: radial-gradient(
+    circle at top,
+    #e5f3ff 0,
+    #f9fafb 55%,
+    #e5f3ff 100%
+  );
+}
+
+/* tweak sidebar & cards in light mode */
+.df-theme-light .df-sidebar {
+  background: linear-gradient(to bottom, #e5f3ff, #f9fafb);
+  border-right-color: rgba(148, 163, 184, 0.6);
+}
+
+.df-theme-light .df-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(241, 245, 249, 0.96)
+  );
+}
+
+/* theme toggle button */
+.df-theme-toggle {
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--df-border);
+  background: rgba(15, 23, 42, 0.3);
+  font-size: 0.72rem;
+  font-family: var(--df-font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--df-text-main);
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.df-theme-light .df-theme-toggle {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.df-theme-toggle:hover {
+  border-color: var(--df-neon);
+  box-shadow: 0 0 12px var(--df-neon-soft);
 }
