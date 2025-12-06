@@ -724,3 +724,91 @@ body,
   border-color: var(--df-neon);
   box-shadow: 0 0 12px var(--df-neon-soft);
 }
+.df-sublist {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  font-size: 0.78rem;
+}
+
+.df-sublist-title {
+  font-family: var(--df-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  margin-bottom: 4px;
+  color: var(--df-text-muted);
+}
+
+.df-sublist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.df-sublist li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.df-sublist .df-subtext {
+  color: var(--df-text-muted);
+  font-size: 0.7rem;
+}
+.df-detail {
+  margin-top: 20px;
+}
+
+.df-detail-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.df-detail-header p {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: var(--df-text-muted);
+}
+
+.df-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr);
+  gap: 20px;
+}
+
+.df-news-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.df-news-recent {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.df-link {
+  text-decoration: none;
+  color: var(--df-text-main);
+}
+
+.df-link:hover {
+  color: var(--df-neon);
+}
+
+.df-refresh {
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--df-border-subtle);
+  background: transparent;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.df-refresh:hover {
+  border-color: var(--df-neon);
+  color: var(--df-neon);
+}
